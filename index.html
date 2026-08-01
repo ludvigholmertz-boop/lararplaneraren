@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lärarplaneraren Beta 1.0</title>
+  <meta name="description" content="Din pedagogiska kompetens. Förstärkt av AI.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top">Lärarplaneraren</a>
+    <span>Din pedagogiska kompetens. Förstärkt av AI.</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Beta 1.0</span>
+        <h1>Planera bättre.<br>Spara tid.</h1>
+        <p class="lead">Bolla fram arbetsområden, skapa individanpassningar och utveckla undervisningen utan att börja om.</p>
+        <button id="startButton" class="primary">Starta en planering</button>
+      </div>
+
+      <aside class="conversation">
+        <div class="bubble teacher">
+          <strong>Du</strong>
+          <p>Klassen behöver tydligare struktur, men flera elever behöver också större utmaning.</p>
+        </div>
+        <div class="bubble colleague">
+          <strong>Kollegan</strong>
+          <p>Då behåller vi samma mål och skapar både ett stödspår och ett fördjupningsspår.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="promise">
+      <span class="eyebrow">Varför vi finns</span>
+      <h2>Vi byggde inte Lärarplaneraren för att ersätta lärare.</h2>
+      <p>Vi byggde den för att ge skickliga lärare mer tid att vara just lärare.</p>
+    </section>
+
+    <section id="planner" class="planner hidden">
+      <div class="planner-heading">
+        <span class="eyebrow">Guidad planering</span>
+        <h2>Bolla fram en bättre planering.</h2>
+      </div>
+
+      <div class="wizard">
+        <aside class="steps">
+          <button class="step active" data-step="1"><span>1</span>Grundidé</button>
+          <button class="step" data-step="2"><span>2</span>Klassen</button>
+          <button class="step" data-step="3"><span>3</span>Arbetssätt</button>
+          <button class="step" data-step="4"><span>4</span>Bekräfta</button>
+        </aside>
+
+        <div class="wizard-panel">
+          <section class="screen active" data-screen="1">
+            <span class="eyebrow">Steg 1 av 4</span>
+            <h3>Vad vill du undervisa om?</h3>
+            <div class="form-grid">
+              <label>Årskurs
+                <select id="grade">
+                  <option>4</option><option>5</option><option selected>6</option>
+                  <option>7</option><option>8</option><option>9</option>
+                </select>
+              </label>
+              <label>Ämne
+                <select id="subject">
+                  <option selected>Historia</option><option>Svenska</option>
+                  <option>Matematik</option><option>Samhällskunskap</option>
+                  <option>Geografi</option><option>Religion</option>
+                  <option>Biologi</option><option>Fysik</option><option>Kemi</option>
+                </select>
+              </label>
+              <label class="wide">Arbetsområde
+                <input id="topic" value="Vasatiden">
+              </label>
+              <label>Antal lektioner
+                <input id="lessonCount" type="number" min="1" max="20" value="5">
+              </label>
+              <label>Minuter per lektion
+                <input id="duration" type="number" min="20" max="180" value="60">
+              </label>
+            </div>
+          </section>
+
+          <section class="screen" data-screen="2">
+            <span class="eyebrow">Steg 2 av 4</span>
+            <h3>Vad behöver Kollegan förstå om klassen?</h3>
+            <label>Vad brukar fungera bra?
+              <textarea id="works">Samarbete, tydliga modeller och praktiska moment.</textarea>
+            </label>
+            <label>Vad brukar vara svårt?
+              <textarea id="challenges">Längre texter och att skilja mellan orsak och konsekvens.</textarea>
+            </label>
+            <label>Vilka behov ska planeringen ta hänsyn till?
+              <textarea id="needs">Tre elever behöver mycket struktur. Två behöver språkligt stöd. Fem behöver extra utmaning.</textarea>
+            </label>
+            <p class="privacy">Beskriv gruppens behov utan elevnamn eller andra personuppgifter.</p>
+          </section>
+
+          <section class="screen" data-screen="3">
+            <span class="eyebrow">Steg 3 av 4</span>
+            <h3>Hur vill du undervisa?</h3>
+            <div class="choice-grid">
+              <label class="choice"><input type="checkbox" value="Samarbete" checked><span>Samarbete</span></label>
+              <label class="choice"><input type="checkbox" value="Praktiska övningar" checked><span>Praktiska övningar</span></label>
+              <label class="choice"><input type="checkbox" value="Diskussioner" checked><span>Diskussioner</span></label>
+              <label class="choice"><input type="checkbox" value="Enskilt arbete"><span>Enskilt arbete</span></label>
+              <label class="choice"><input type="checkbox" value="Stationsarbete"><span>Stationsarbete</span></label>
+              <label class="choice"><input type="checkbox" value="Digitala verktyg"><span>Digitala verktyg</span></label>
+            </div>
+            <label>Vad ska eleverna framför allt utveckla?
+              <textarea id="focus">Förstå orsaker och konsekvenser samt använda ämnesbegrepp i resonemang.</textarea>
+            </label>
+          </section>
+
+          <section class="screen" data-screen="4">
+            <span class="eyebrow">Steg 4 av 4</span>
+            <h3>Har Kollegan förstått dig rätt?</h3>
+            <div id="summary" class="summary"></div>
+            <label>Justera eller lägg till något
+              <textarea id="finalNote" placeholder="Exempel: Sista lektionen ska avslutas med en muntlig redovisning."></textarea>
+            </label>
+          </section>
+
+          <div class="wizard-actions">
+            <button id="previousButton" class="secondary" disabled>Tillbaka</button>
+            <button id="nextButton" class="primary">Nästa</button>
+            <button id="generateButton" class="primary hidden">Skapa planering</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultSection" class="result hidden">
+      <div class="result-header">
+        <div>
+          <span class="eyebrow">Undervisningsunderlag</span>
+          <h2 id="resultTitle"></h2>
+        </div>
+        <button id="copyButton" class="secondary">Kopiera planeringen</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="plan">Planering</button>
+        <button class="tab" data-tab="adapt">Anpassa</button>
+        <button class="tab" data-tab="reflect">Reflektera</button>
+        <button class="tab" data-tab="saved">Sparade</button>
+      </div>
+
+      <section class="tab-panel active" data-panel="plan" id="planPanel"></section>
+
+      <section class="tab-panel" data-panel="adapt">
+        <h3>Ändra utan att börja om</h3>
+        <p>Välj vad som behöver utvecklas. Målen och resten av planeringen behålls.</p>
+        <div class="adapt-grid">
+          <button>Förenkla språket</button>
+          <button>Lägg till tydligare struktur</button>
+          <button>Skapa ett muntligt alternativ</button>
+          <button>Gör upplägget mer praktiskt</button>
+          <button>Öka utmaningen</button>
+          <button>Korta en lektion till 30 minuter</button>
+        </div>
+        <div id="adaptMessage" class="assistant-message">Välj en anpassning för att se hur funktionen är tänkt att fungera.</div>
+      </section>
+
+      <section class="tab-panel" data-panel="reflect">
+        <h3>Vad tar vi med oss till nästa lektion?</h3>
+        <label>Vad fungerade bra?
+          <textarea id="reflectionGood"></textarea>
+        </label>
+        <label>Vad blev svårt?
+          <textarea id="reflectionHard"></textarea>
+        </label>
+        <label>Vad vill du förändra?
+          <textarea id="reflectionChange"></textarea>
+        </label>
+        <button id="reflectionButton" class="primary">Skapa förbättringsförslag</button>
+        <div id="reflectionResult" class="assistant-message hidden"></div>
+      </section>
+
+      <section class="tab-panel" data-panel="saved">
+        <div class="saved-heading">
+          <div>
+            <h3>Mina arbetsområden</h3>
+            <p>Planeringar sparas lokalt i den här webbläsaren.</p>
+          </div>
+          <button id="clearSavedButton" class="secondary">Rensa sparade</button>
+        </div>
+        <div id="savedProjects" class="saved-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Lärarplaneraren Beta 1.0</strong>
+    <span>Inga elevpersonuppgifter ska matas in.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
