@@ -1,41 +1,31 @@
-# Lärarplaneraren Beta 1.0
+# Lärarplaneraren Beta 1.1
 
-Det här är den enkla GitHub Pages-versionen av Lärarplaneraren.
+Beta 1.1 introducerar **Lärarkollegan** som produktens pedagogiska samtalspartner.
 
-## Filer
+## Uppdatera din befintliga GitHub Pages-sida
 
-Ladda upp dessa fyra filer direkt i huvudnivån i ditt GitHub-repository:
+Ersätt de gamla filerna med dessa:
 
 - `index.html`
 - `style.css`
 - `script.js`
 - `README.md`
 
-Det finns inga mappar, ingen Node.js och ingen installation.
+På GitHub kan du ladda upp filerna med samma namn. GitHub frågar då om befintliga filer ska ersättas.
 
-## Publicera på GitHub Pages
+Klicka därefter på **Commit changes**. GitHub Pages publicerar normalt den nya versionen automatiskt efter någon minut.
 
-1. Öppna repositoryt på GitHub.
-2. Klicka på **Add file → Upload files**.
-3. Ladda upp de fyra filerna.
-4. Klicka på **Commit changes**.
-5. Gå till **Settings → Pages**.
-6. Under **Build and deployment**, välj **Deploy from a branch**.
-7. Välj `main` och `/root`.
-8. Klicka på **Save**.
+## Nytt i Beta 1.1
 
-Efter någon minut visas webbadressen på samma sida.
-
-## Vad betan innehåller
-
-- Landningssida och varumärkesbudskap.
-- Guidad planering i fyra steg.
-- Planeringsresultat.
-- Anpassningsflöde.
-- Reflektionsflöde.
-- Sparade arbetsområden via webbläsarens lokala lagring.
-- Mobilanpassad design.
+- Ny startsida med Lärarkollegan som huvudperson.
+- Samtalsbaserad planering istället för ett vanligt formulär.
+- Åtta pedagogiska frågor som visas en i taget.
+- Förklaring av varför varje fråga ställs.
+- Snabbval för arbetssätt.
+- Sammanfattning och bekräftelse före planeringen.
+- Pedagogiska råd i resultatet.
+- Anpassning, reflektion och lokalt sparade arbetsområden.
 
 ## Begränsning
 
-Beta 1.0 använder ännu ingen riktig AI. Den testar användarflödet och sparar material lokalt. Riktig AI kopplas senare via en säker serverlösning, eftersom en hemlig API-nyckel aldrig ska läggas i GitHub Pages-kod.
+Detta är fortfarande en testbeta utan riktig AI. Dialogen och planeringen körs i webbläsaren. Versionen är avsedd att testa användarupplevelsen med lärare innan en säker AI-server kopplas in.
